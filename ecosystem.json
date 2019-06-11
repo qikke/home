@@ -16,7 +16,7 @@
       "repo": "git@github.com:qikke/home.git",
       "ref": "origin/master",
       "path": "/home/qk/deploy/home",
-      "post-deploy": "cd source && cnpm install && npm run build && pm2 startOrRestart ecosystem.json --env production"
+      "post-deploy": "cnpm install && npm run build && pm2 startOrRestart ecosystem.json --env production"
     }
   }
 }
