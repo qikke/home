@@ -11,7 +11,8 @@ const config = {
   },
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].js',
+    // publicPath: '/public/'
   },
   module: {
     rules: [
@@ -35,7 +36,7 @@ const config = {
 if(isDev) {
   config.devServer = {
     host: '0.0.0.0',
-    port: '8099',
+    port: '3000',
     contentBase: path.join(__dirname, '../dist'),
     hot: true
   }
