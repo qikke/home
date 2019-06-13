@@ -18,25 +18,29 @@ const config = {
   },
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].[hash].js',
-    // publicPath: '/public/'
+    filename: 'js/[name].[hash].js',
+    // publicPath: 'static'
   },
   module: {
     rules: [
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1000,
+              name: 'image/[name]_[hash:7].[ext]'
+            },
+          },
+        ],
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: [
           path.join(__dirname, '../node_modules')
         ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader'
-        ],
       },
       {
         test: /\.less$/,
@@ -55,8 +59,8 @@ const config = {
       template: path.join(__dirname, '../client/index.html')
     }),
     new MiniCssExtractPlugin({
-      filename: isDev ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
+      filename: isDev ? '[name].css' : 'css/[name].[hash].css',
+      chunkFilename: isDev ? '[id].css' : 'css/[id].[hash].css'
     })
   ]
 }
