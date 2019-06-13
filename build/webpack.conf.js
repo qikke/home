@@ -1,11 +1,18 @@
+const webpack = require('webpack')
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HTMLPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const isDev = process.env.NODE_ENV = 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
-  mode: isDev ? 'development' : 'production',
+  mode: 'production',
+  optimization: {
+    minimizer: [new UglifyJsPlugin(), new OptimizeCSSAssetsPlugin({})],
+  },
   entry: {
     app: path.join(__dirname, '../client/app.js')
   },
@@ -22,6 +29,23 @@ const config = {
         exclude: [
           path.join(__dirname, '../node_modules')
         ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader'
+        ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+          'less-loader'
+        ],
       }
     ]
   },
@@ -29,17 +53,29 @@ const config = {
     new CleanWebpackPlugin(),
     new HTMLPlugin({
       template: path.join(__dirname, '../client/index.html')
+    }),
+    new MiniCssExtractPlugin({
+      filename: isDev ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDev ? '[id].css' : '[id].[hash].css'
     })
   ]
 }
 
-if(isDev) {
+if (isDev) {
+  config.mode = 'development'
+  config.entry = {
+    app: [
+      'react-hot-loader/patch',
+      path.join(__dirname, '../client/app.js')
+    ]
+  }
   config.devServer = {
     host: '0.0.0.0',
     port: '3000',
     contentBase: path.join(__dirname, '../dist'),
     hot: true
   }
+  config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
 module.exports = config
