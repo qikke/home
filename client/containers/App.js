@@ -1,6 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import { Home } from './homePage'
+import Routes from '../config/router'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -9,7 +8,7 @@ export default class App extends React.Component {
 
   render () {
     return (
-      [<Route path="/" component={Home} exact key="home" />]
+      <Routes key="router" />
     )
   }
 }

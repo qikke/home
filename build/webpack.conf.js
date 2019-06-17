@@ -77,7 +77,10 @@ if (isDev) {
     host: '0.0.0.0',
     port: '3000',
     contentBase: path.join(__dirname, '../dist'),
-    hot: true
+    hot: true,
+    historyApiFallback: {
+      index: '/index.html'
+    }
   }
   config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }

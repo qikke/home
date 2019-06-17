@@ -13,7 +13,7 @@ app.use(static(
   path.join( __dirname,  staticPath)
 ))
 
-router.get('/', (ctx, next) => {
+router.get('*', (ctx, next) => {
   const html = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf-8')
   ctx.body = html;
   next()
