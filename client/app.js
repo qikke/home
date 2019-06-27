@@ -3,6 +3,9 @@ import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './containers/App'
 import { AppContainer } from 'react-hot-loader'
+import { Provider } from 'react-redux'
+
+import store from './Store.js';
 
 const root = document.getElementById('root')
 
@@ -10,7 +13,9 @@ const render = (Component) => {
   ReactDom.render(
     <AppContainer>
       <BrowserRouter>
-        <Component />
+        <Provider store={store}>
+          <Component />
+        </Provider>
       </BrowserRouter>
     </AppContainer>,
     root

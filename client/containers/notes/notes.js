@@ -1,5 +1,7 @@
 import React from 'react'
 
+import SideBar from './components/sideBar'
+
 class Notes extends React.Component {
   constructor(props) {
     super(props)
@@ -7,8 +9,8 @@ class Notes extends React.Component {
 
   render() {
     return (
-      <div>
-        NOTES
+      <div className="notesWrap">
+        <SideBar></SideBar>
       </div>
     )
   }

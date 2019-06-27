@@ -13,7 +13,6 @@ class Home extends React.Component {
   render () {
     return (
       <div className="xx" ref={this.imgRefs}>
-        <h1>H,</h1>
         <img src={require('../../assets/img/logo.png')} width="50" height="50"></img>
       </div>
     )
