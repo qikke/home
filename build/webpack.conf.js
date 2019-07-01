@@ -80,6 +80,12 @@ if (isDev) {
     hot: true,
     historyApiFallback: {
       index: '/index.html'
+    },
+    proxy: {
+      '/api': {
+          target: 'http://qikke.cn/',
+          changeOrigin: true
+      }
     }
   }
   config.plugins.push(new webpack.HotModuleReplacementPlugin())

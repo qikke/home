@@ -1,5 +1,5 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk'
+import {applyMiddleware, combineReducers, createStore} from 'redux';
+import thunkMiddleware from 'redux-thunk';
 
 const modulesFiles = require.context('./redux', false, /\.js$/)
 const modules = modulesFiles.keys().reduce((modules, modulePath) => {
