@@ -1,13 +1,18 @@
-import React from 'react'
-import ReactDom from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import App from './containers/App'
-import { AppContainer } from 'react-hot-loader'
-import { Provider } from 'react-redux'
-
+import React from 'react';
+import ReactDom from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+import {Provider} from 'react-redux';
+import {BrowserRouter} from 'react-router-dom';
+import App from './containers/App';
 import store from './Store.js';
 
+
 const root = document.getElementById('root')
+
+window.onerror = (...arg) => {
+  console.log(arg[4].stack)
+  return true
+}
 
 const render = (Component) => {
   ReactDom.render(

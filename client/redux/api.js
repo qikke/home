@@ -1,5 +1,5 @@
-const FETCH_STARTED = 'API/STARTED'
-const FETCH_SUCCESS = 'API/SUCCESS'
+export const FETCH_STARTED = 'API/STARTED'
+export const FETCH_SUCCESS = 'API/SUCCESS'
 const FETCH_FAILURE = 'API/FAILURE'
 
 const reducer = function (state={}, action)  {
@@ -15,7 +15,7 @@ const reducer = function (state={}, action)  {
     }
 }
 
-const fetchApiStarted = () => ({
+export const fetchApiStarted = () => ({
     type: FETCH_STARTED
 })
   
@@ -33,20 +33,20 @@ export const fetchApi = () => {
     return (dispatch) => {
         const api = '/api/Notes/addFolder'
        
-        dispatch(fetchApiStarted())
-        fetch(api, {
-            body: 'name=yxx',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        }).then(res=>{
-            console.log(res)
-            dispatch(fetchApiSuccess(res))
-        }).catch(err=>{
-            console.log(err)
-            dispatch(fetchApiFailure(err))
-        })
+        // dispatch(fetchApiStarted())
+        // return fetch(api, {
+        //     body: 'name=yxx',
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded',
+        //   },
+        // }).then(res=>{
+        //     console.log(res)
+        //     dispatch(fetchApiSuccess(res))
+        // }).catch(err=>{
+        //     console.log(err)
+        //     dispatch(fetchApiFailure(err))
+        // })
     }
 }
 

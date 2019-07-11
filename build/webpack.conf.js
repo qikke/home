@@ -53,6 +53,13 @@ const config = {
       }
     ]
   },
+  devtool: 'cheap-module-source-map',
+  watch: true,
+  watchOptions: {
+    poll: 1000,
+    aggregateTimeout: 500,
+    ignored: /node_modules/
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HTMLPlugin({
@@ -61,6 +68,9 @@ const config = {
     new MiniCssExtractPlugin({
       filename: isDev ? '[name].css' : 'css/[name].[hash].css',
       chunkFilename: isDev ? '[id].css' : 'css/[id].[hash].css'
+    }),
+    new webpack.SourceMapDevToolPlugin({
+      filename: "[file].map"
     })
   ]
 }

@@ -1,8 +1,8 @@
 let nextTodoId = 0
 
 // action-type
-const ADD_TODOS = 'TODOS/ADD'
-const REMOVE_TODOS = 'TODOS/REMOVE'
+export const ADD_TODOS = 'TODOS/ADD'
+export const REMOVE_TODOS = 'TODOS/REMOVE'
 
 // reducer
 const reducer = function (state = [], action) {

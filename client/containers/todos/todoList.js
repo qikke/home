@@ -6,7 +6,7 @@ const TodoList = ({ todos }) => {
     <ul>
       {
         todos.map(item => (
-          <li key={item.id}>
+          <li key={item.id} className='text'>
             {item.text}
           </li>
         ))

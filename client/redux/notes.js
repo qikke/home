@@ -13,6 +13,8 @@ const reducer = (state={folders: []}, action) => {
         case ADD_FOLDER: 
             state.folders.push({})
             return {}
+        default: 
+            return {}
     }
 }
 
@@ -24,3 +26,5 @@ const note = [
         folderId: ''
     }
 ]
+
+export default reducer
