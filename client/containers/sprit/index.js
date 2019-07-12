@@ -1,10 +1,12 @@
 import React from 'react';
+import global from '../../utlis/global';
 
 class Sprit extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            status: 1
+            status: 1,
+            xx: global.xx
         }
     }
     render () {
@@ -27,6 +29,12 @@ class Sprit extends React.Component {
                     <img src="https://qikke.cn/static/sprit/8.png"></img>
                     <img src="https://qikke.cn/static/sprit/9.jpg"></img>
                     <img src="https://qikke.cn/static/sprit/10.jpg"></img>
+                    <img src="https://qikke.cn/static/sprit/11.webp"></img>
+                    <img src="https://qikke.cn/static/sprit/12.png"></img>
+                    <img src="https://qikke.cn/static/sprit/13.png"></img>
+                    <img src="https://qikke.cn/static/sprit/14.png"></img>
+                    <img src="https://qikke.cn/static/sprit/15.png"></img>
+                    <img src="https://qikke.cn/static/sprit/16.png"></img>
                     </div>
                     )
                 }

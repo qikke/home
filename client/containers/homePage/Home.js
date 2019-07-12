@@ -1,13 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchApi} from '../../redux/api';
+import global from '../../utlis/global';
 import './home.less';
-
 
 class Home extends React.Component {
   constructor(props) {
     super(props)
     this.imgRefs = React.createRef()
+    this.state = {
+      xx: global.xx
+    }
   }
 
   componentDidMount () {}

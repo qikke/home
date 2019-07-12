@@ -1,13 +1,13 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
+import asycnComponent from '../components/AsyncComponent';
 import {Home} from '../containers/homePage';
-import {Notes} from '../containers/notes';
-import Sprit from '../containers/sprit';
-
+const AysncSprit = asycnComponent(() => import('../containers/sprit'));
+const AysncNotes = asycnComponent(() => import('../containers/notes'));
 
 export default () => [
   <Route path="/" component={Home} exact key="home" />,
-  <Route path="/notes" component={Notes} key="notes" />,
-  <Route path="/sprit" component={Sprit} key="sprit" />,
+  <Route path="/notes" component={AysncNotes} key="notes" />,
+  <Route path="/sprit" component={AysncSprit} key="sprit" />,
   // <Route path="/todos" component={Todos} key="todos" />
 ]
