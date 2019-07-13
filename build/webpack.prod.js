@@ -9,7 +9,33 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = smart(base, {
     mode: 'production',
     optimization: {
-        minimizer: [new UglifyJsPlugin(), new OptimizeCSSAssetsPlugin({})]
+        minimizer: [
+            new UglifyJsPlugin({
+                 extractComments: false,
+                 uglifyOptions: {
+                    compress: {
+                      unused: true,
+                      warnings: false,
+                      drop_debugger: true
+                    },
+                    output: {
+                      comments: false
+                    }
+                  }
+            }), 
+            new OptimizeCSSAssetsPlugin({
+                assetNameRegExp: /\.css$/g,
+                cssProcessorOptions: {
+                    safe: true,
+                    autoprefixer: { disable: true },
+                    mergeLonghand: false,
+                    discardComments: {
+                        removeAll: true
+                    }
+                },
+                canPrint: true
+            })
+        ]
     },
     plugins: [
         new CleanWebpackPlugin(),
