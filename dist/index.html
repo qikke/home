@@ -5,8 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>HOME</title>
-<link href="css/app.529597c5db19459b609b.css" rel="stylesheet"></head>
+  <script>
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        const metricName = entry.name;
+        const time = Math.round(entry.startTime + entry.duration);
+        console.log('entry', entry)
+        console.log('metricName', metricName)
+        console.log('time', time)
+      }
+    });
+    observer.observe({entryTypes: ['paint']});
+    </script>
+<link href="css/app.b042052497bf7b5b92bc.css" rel="stylesheet"></head>
 <body>
   <div id="root"></div>
-<script type="text/javascript" src="js/vendors~app.529597c5db19459b609b.js"></script><script type="text/javascript" src="js/app.529597c5db19459b609b.js"></script></body>
+<script type="text/javascript" src="js/vendors~app.b042052497bf7b5b92bc.js"></script><script type="text/javascript" src="js/app.b042052497bf7b5b92bc.js"></script></body>
 </html>

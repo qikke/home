@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>HOME</title>
+  <script>
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        const metricName = entry.name;
+        const time = Math.round(entry.startTime + entry.duration);
+        console.log('entry', entry)
+        console.log('metricName', metricName)
+        console.log('time', time)
+      }
+    });
+    observer.observe({entryTypes: ['paint']});
+    </script>
 </head>
 <body>
   <div id="root"></div>
