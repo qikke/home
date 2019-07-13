@@ -3,6 +3,7 @@ const Router = require('koa-router')
 const static = require('koa-static')
 const fs = require('fs')
 const path = require('path')
+const cacheControl = require('koa-cache-control')
 
 const app = new Koa()
 const router = new Router()
@@ -22,5 +23,9 @@ router.get('*', (ctx, next) => {
 app
   .use(router.routes())
   .use(router.allowedMethods())
+
+app.use(cacheControl({
+    maxAge: 1000000
+}));
 
 app.listen('8099')

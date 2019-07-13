@@ -11,17 +11,20 @@ module.exports = smart(base, {
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
-                 extractComments: false,
-                 uglifyOptions: {
+                extractComments: false,
+                cache: true,
+                parallel: true, 
+                sourceMap: false,
+                uglifyOptions: {
                     compress: {
-                      unused: true,
-                      warnings: false,
-                      drop_debugger: true
+                        unused: true,
+                        warnings: false,
+                        drop_debugger: true
                     },
                     output: {
-                      comments: false
+                        comments: false
                     }
-                  }
+                }
             }), 
             new OptimizeCSSAssetsPlugin({
                 assetNameRegExp: /\.css$/g,
