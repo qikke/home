@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 
 module.exports = smart(base, {
     mode: 'production',
@@ -50,6 +51,8 @@ module.exports = smart(base, {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'
-        })
+        }),
+        new ManifestPlugin(),
+        new webpack.HashedModuleIdsPlugin()
     ]
 })
