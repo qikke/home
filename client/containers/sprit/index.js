@@ -15,6 +15,7 @@ class Sprit extends React.Component {
             <button onClick={() => {this.setState({status: 1})}}>10张图</button>
             <button onClick={() => {this.setState({status: 2})}}>一张雪碧图</button>
             <button onClick={() => {this.setState({status: 3})}}>所有</button>
+            xx
             <div>
                 {
                     (this.state.status === 1) && (
