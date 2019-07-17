@@ -1,9 +1,9 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-// import asycnComponent from '../components/AsyncComponent';
+import asycnComponent from '../components/AsyncComponent';
 import {Home} from '../containers/homePage';
-const AysncSprit = React.lazy(() => import('../containers/sprit'));
-const AysncNotes = React.lazy(() => import('../containers/notes'));
+const AysncSprit = asycnComponent(() => import('../containers/sprit'));
+const AysncNotes = asycnComponent(() => import('../containers/notes'));
 
 export default () => [
   <Route path="/" component={Home} exact key="home" />,

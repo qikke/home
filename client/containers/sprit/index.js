@@ -12,6 +12,9 @@ class Sprit extends React.Component {
     render () {
         return (
         <div>
+            <video controls>
+                <source src={require('../../assets/video/xx.mp4')} type="video/mp4" />
+            </video>
             <button onClick={() => {this.setState({status: 1})}}>10张图</button>
             <button onClick={() => {this.setState({status: 2})}}>一张雪碧图</button>
             <button onClick={() => {this.setState({status: 3})}}>所有</button>
