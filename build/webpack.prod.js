@@ -9,6 +9,11 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 
 module.exports = smart(base, {
     mode: 'production',
+    output: {
+        path: path.join(__dirname, '../dist'),
+        filename: 'js/[name].[chunkhash].js',
+        // publicPath: 'static'
+    },
     optimization: {
         minimizer: [
             new UglifyJsPlugin({

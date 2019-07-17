@@ -12,6 +12,11 @@ module.exports = merge(base, {
             path.join(__dirname, '../client/app.js')
         ]
     },
+    output: {
+        path: path.join(__dirname, '../dist'),
+        filename: 'js/[name].[hash].js',
+        // publicPath: 'static'
+    },
     devServer: {
         host: '0.0.0.0',
         port: '3000',

@@ -36,11 +36,6 @@ const config = {
     app: path.join(__dirname, '../client/app.js')
   },
   devtool: 'cheap-module-source-map',
-  output: {
-    path: path.join(__dirname, '../dist'),
-    filename: 'js/[name].[chunkhash].js',
-    // publicPath: 'static'
-  },
   module: {
     rules: [
       {
