@@ -1,6 +1,8 @@
 import React from 'react';
+import Delegator from '../../utlis/delegator';
 import global from '../../utlis/global';
 
+@yy('yy')
 class Sprit extends React.Component {
     constructor(props) {
         super(props)
@@ -8,22 +10,43 @@ class Sprit extends React.Component {
             status: 1,
             xx: global.xx
         }
+        this.rootRef = React.createRef()
+    }
+    componentDidMount() {
+        this.test()
+        document.addEventListener('custom', function() {
+            console.log('custom')
+        })
+
+        const delegator = new Delegator(this.rootRef.current)
+        delegator.on('click', '#img1', () => {
+            console.log(111)
+        })
+        delegator.on('click', '#img2', () => {
+            console.log(222)
+        })
+    }
+    @xx
+    test() {
+       Function.prototype.before = (fn) => {
+            return function () {
+                fn.call()
+            }
+       }
     }
     render () {
         return (
         <div>
-            <video controls>
-                <source src={require('../../assets/video/xx.mp4')} type="video/mp4" />
-            </video>
+            <button onClick={() => {document.dispatchEvent(new CustomEvent('custom'))}}>event</button>
             <button onClick={() => {this.setState({status: 1})}}>10张图</button>
             <button onClick={() => {this.setState({status: 2})}}>一张雪碧图</button>
             <button onClick={() => {this.setState({status: 3})}}>所有</button>
             <div>
                 {
                     (this.state.status === 1) && (
-                    <div>
-                    <img src="https://qikke.cn/static/sprit/1.png"></img>
-                    <img src="https://qikke.cn/static/sprit/2.jpg"></img>
+                    <div ref={this.rootRef}>
+                    <img id='img1' src="https://qikke.cn/static/sprit/1.png"></img>
+                    <img id='img2' src="https://qikke.cn/static/sprit/2.jpg"></img>
                     <img src="https://qikke.cn/static/sprit/3.png"></img>
                     <img src="https://qikke.cn/static/sprit/4.png"></img>
                     <img src="https://qikke.cn/static/sprit/5.jpg"></img>
@@ -64,6 +87,20 @@ class Sprit extends React.Component {
             </div>
         </div>
         )
+    }
+}
+
+
+
+
+function xx() {
+    console.log(arguments)
+}
+
+function yy(yy) {
+    return function(xxx) {
+        // console.log(yy)
+        // console.log(xxx)
     }
 }
 
