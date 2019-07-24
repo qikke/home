@@ -3,10 +3,14 @@ const Router = require('koa-router')
 const static = require('koa-static')
 const fs = require('fs')
 const path = require('path')
-
+const conditional = require('koa-conditional-get');
+const etag = require('koa-etag');
 const app = new Koa()
 const router = new Router()
 
+
+app.use(conditional());
+app.use(etag());
 const staticPath = '../dist'
 
 app.use(static(
