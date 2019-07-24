@@ -1,6 +1,6 @@
 import React from 'react';
-import Delegator from '../../utlis/delegator';
-import global from '../../utlis/global';
+// import Delegator from '../../utlis/delegator';
+// import global from '../../utlis/global';
 
 @yy('yy')
 class Sprit extends React.Component {
@@ -8,7 +8,7 @@ class Sprit extends React.Component {
         super(props)
         this.state = {
             status: 1,
-            xx: global.xx
+            // xx: global.xx
         }
         this.rootRef = React.createRef()
     }
@@ -18,13 +18,13 @@ class Sprit extends React.Component {
             console.log('custom')
         })
 
-        const delegator = new Delegator(this.rootRef.current)
-        delegator.on('click', '#img1', () => {
-            console.log(111)
-        })
-        delegator.on('click', '#img2', () => {
-            console.log(222)
-        })
+        // const delegator = new Delegator(this.rootRef.current)
+        // delegator.on('click', '#img1', () => {
+        //     console.log(111)
+        // })
+        // delegator.on('click', '#img2', () => {
+        //     console.log(222)
+        // })
     }
     @xx
     test() {

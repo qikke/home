@@ -3,9 +3,9 @@ import ReactDom from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
+import './components/globalcss/init.scss';
 import App from './containers/App';
 import store from './Store.js';
-
 
 const root = document.getElementById('root')
 

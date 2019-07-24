@@ -1,5 +1,8 @@
-import React from 'react'
-import Routes from '../config/router'
+import history from '@/utils/history';
+import '@c/globalcss/index.scss';
+import Header from '@c/header';
+import React from 'react';
+import Routes from '../config/router';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -8,7 +11,10 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <Routes key="router" />
+      <div className="main">
+        <Header history={history} />
+        <Routes key="router" history={history} />
+      </div>
     )
   }
 }
