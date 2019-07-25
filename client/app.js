@@ -1,8 +1,9 @@
+// import history from '@/utils/history';
 import React from 'react';
 import ReactDom from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from 'react-router-dom';
+// import {BrowserRouter} from 'react-router-dom';
 import './components/globalcss/init.scss';
 import App from './containers/App';
 import store from './Store.js';
@@ -17,11 +18,11 @@ window.onerror = (...arg) => {
 const render = (Component) => {
   ReactDom.render(
     <AppContainer>
-      <BrowserRouter>
+      {/* <BrowserRouter history={history}> */}
         <Provider store={store}>
           <Component />
         </Provider>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </AppContainer>,
     root
   )
