@@ -1,0 +1,68 @@
+.blog-module__view___3y53p img {
+  margin: 0 auto;
+  max-width: 100%; }
+
+.blog-module__view___3y53p p {
+  margin: 1.5em 0; }
+  .blog-module__view___3y53p p > code {
+    padding: 2px 4px;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px; }
+
+.blog-module__view___3y53p pre {
+  padding: 1rem;
+  border: none;
+  overflow: auto;
+  line-height: 1.45;
+  max-height: 35rem;
+  position: relative;
+  background: #f6f6f6; }
+
+.blog-module__view___3y53p blockquote {
+  border-left: 2px solid #8e24aa;
+  background: #f6f6f6;
+  color: #555;
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  padding: 10px; }
+
+.blog-module__view___3y53p h1, .blog-module__view___3y53p h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px; }
+
+.blog-module__view___3y53p blockquote p:last-child {
+  margin: 0; }
+
+.blog-module__view___3y53p code, .blog-module__view___3y53p a, .blog-module__view___3y53p h1, .blog-module__view___3y53p h2, .blog-module__view___3y53p h3, .blog-module__view___3y53p pre, .blog-module__view___3y53p p {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; }
+
+.newBlog-module__newBlogWrapper___2XSbD {
+  padding-top: 20px;
+  height: 100%;
+  position: relative; }
+  .newBlog-module__newBlogWrapper___2XSbD .newBlog-module__contentWrapper___3Askg {
+    margin-top: 20px;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%; }
+    .newBlog-module__newBlogWrapper___2XSbD .newBlog-module__contentWrapper___3Askg .newBlog-module__leftContent___2Ft30 {
+      padding: 20px;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+      width: 50%; }
+    .newBlog-module__newBlogWrapper___2XSbD .newBlog-module__contentWrapper___3Askg .newBlog-module__rightContent___2TlHs {
+      padding: 20px;
+      overflow-y: auto; }
+  .newBlog-module__newBlogWrapper___2XSbD .newBlog-module__newLabel___7zQt2 {
+    display: inline-block;
+    width: 100px; }
+  .newBlog-module__newBlogWrapper___2XSbD .newBlog-module__saveButton___3KC-k {
+    position: absolute;
+    bottom: 0;
+    right: 20px; }
+
+
+/*# sourceMappingURL=4.6942e94d8bd8a0f5d6d7.css.map*/
