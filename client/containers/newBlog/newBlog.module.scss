@@ -1,0 +1,29 @@
+.newBlogWrapper {
+    padding-top: 20px;
+    height: 100%;
+    position: relative;
+    .contentWrapper {
+        margin-top: 20px;
+        background-color: #fff;
+        display: flex;
+        height: 100%;
+        .leftContent {
+            padding: 20px;
+            flex-shrink: 0;
+            width: 50%;
+        }
+        .rightContent {
+            padding: 20px;
+            overflow-y: auto;
+        }
+    }
+    .newLabel {
+        display: inline-block;
+        width: 100px;
+    }
+    .saveButton {
+        position: absolute;
+        bottom: 0;
+        right: 20px;
+    }
+}

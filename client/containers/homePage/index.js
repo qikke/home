@@ -21,9 +21,9 @@ class Home extends React.Component {
 
   componentWillMount(){
     // 组件加载时查看Cookie是否有保存用户信息
-    let email = this.getCookie("testEmali")
+    let email = this.getCookie("homeEmail")
     if(email){
-      let name = this.getCookie("testName")
+      let name = this.getCookie("homeName")
       this.setState({
         user:{
           name:name,
@@ -59,8 +59,8 @@ class Home extends React.Component {
       user: opt,
       modelType: 'ok'
     })
-    this.setCookie("testEmali",opt.email)
-    this.setCookie("testName",opt.name)
+    this.setCookie("homeEmail",opt.email)
+    this.setCookie("homeName",opt.name)
     this.refs.model.show()
   }
 

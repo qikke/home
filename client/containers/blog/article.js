@@ -27,14 +27,9 @@ export default class Article extends Component {
     const { 
       body, 
       title, 
-      html_url, 
       labels, 
-      created_at,
-      needLoginGithub
+      created_at
     } = this.props.data
-    // if (needLoginGithub) {
-    //   return (<Login resetUserInfo={this.props.resetUserInfo} reGetter={this.props.reGetter}/>)
-    // }
     if (!body) {
       return (<div></div>)
     }
@@ -43,7 +38,6 @@ export default class Article extends Component {
       <div ref="article" className = {blogCss.article}>
         <div className = {blogCss['article-center']}>
           <h1> {title} </h1>
-          <a target="_blank" href={html_url}>[原文链接]</a>
           <span className = { blogCss['blog-menu-time'] }>{ moment(created_at).format('YYYY-MM-DD') }</span>
           <Labels labels={labels} />
           <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}} />

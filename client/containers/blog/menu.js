@@ -22,8 +22,8 @@ export default class BlogMenu extends Component {
           {
             articles.map(article => (
               <li 
-                className = { article.number == currentArticle.number ? indexCss : waitCss } 
-                key = { article.number } 
+                className = { article.id == currentArticle.id ? indexCss : waitCss } 
+                key = { article.id } 
                 onClick={() => this.props.changeArticle(article)}
               >
                 <h3 className = { titleCss }>{ article.title }</h3>

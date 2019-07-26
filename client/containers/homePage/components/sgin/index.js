@@ -50,6 +50,7 @@ export default class SginIn extends Component{
   // 获取用户名请求注册接口
   getName(dom){
     if(this.state.erro) return false;
+    if(dom.value === '') return
     const value = dom.value.toString().replace(/<|>/g,' ')
      axios.post('User/saveUser/', {
          email: this.email,

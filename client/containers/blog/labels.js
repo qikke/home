@@ -1,9 +1,9 @@
 import React from 'react';
 import * as blogCss from './blog.module.scss';
 const Label = props => {
-  const { color, name, url } = props
+  const {  name, color } = props
   return (
-    <a className={blogCss['blog-menu-label']} target="_blank" href={url} style={{color: `#${color}`}}>{ name }</a>
+    <span className={blogCss['blog-menu-label']}  style={{color: `#${color}`}}>{ name }</span>
   )
 }
 

@@ -115,6 +115,19 @@ const config = {
           'postcss-loader',
           'sass-loader'
         ],
+      },
+      {//antd样式处理
+        test:/\.css$/,
+        exclude:/src/,
+        use:[
+            { loader: "style-loader",},
+            {
+                loader: "css-loader",
+                options:{
+                    importLoaders:1
+                }
+            }
+        ]
       }
     ]
   },
