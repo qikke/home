@@ -15,15 +15,14 @@ export default class BlogMenu extends Component {
       ['blog-menu-title']: titleCss,
       ['blog-menu-time']: timeCss
     } = blogCss
-
     return (
       <div className={ contentCss }>
         <ul className={ listCss }>
           {
             articles.map(article => (
               <li 
-                className = { article.id == currentArticle.id ? indexCss : waitCss } 
-                key = { article.id } 
+                className = { article._id == currentArticle._id ? indexCss : waitCss } 
+                key = { article._id } 
                 onClick={() => this.props.changeArticle(article)}
               >
                 <h3 className = { titleCss }>{ article.title }</h3>

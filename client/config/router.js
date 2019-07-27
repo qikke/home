@@ -13,6 +13,7 @@ export default () => (
     <Route path="/" component={Home} exact key="home" />,
     <Route path="/blog" component={AysncBlog} exact key="blog" />,
     <Route path="/new" component={AysncNewBlog} exact key="new" />,
+    <Route path="/edit" component={AysncNewBlog} exact key="edit" />,
     <Route path="/notes" component={AysncNotes} key="notes" />,
     <Route path="/sprit" component={AysncSprit} key="sprit" />,
     <Route path="/upload" component={AysncUpload} key="upload" />

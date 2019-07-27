@@ -25,16 +25,31 @@ class NewBlog extends Component{
             labels: [],
             newLabelFlag: false,
             checkedLabels: [],
-            title: ''
+            title: '',
+            editId: ''
         }
         this.addLabelInput = React.createRef()
         this.handleMarkChange = this.handleMarkChange.bind(this)
         this.handleAddLabel = this.handleAddLabel.bind(this)
         this.handleSave = this.handleSave.bind(this)
+        this.getEditData = this.getEditData.bind(this)
     }
 
     componentDidMount() {
         this.getAllLabels()
+        this.getEditData()
+    }
+
+    getEditData() {
+        const editData = this.props.location.query
+        if(editData) {
+            this.setState({
+                title: editData.artical.title, 
+                markValue: editData.artical.body, 
+                checkedLabels: editData.artical.labels,
+                editId: editData.id
+            })
+        }
     }
 
     getAllLabels() {
@@ -90,11 +105,19 @@ class NewBlog extends Component{
             labels: this.state.checkedLabels.join('|'),
             body: this.state.markValue
         }
-        axios.post('/Blog/addBlog', params).then(res => {
-            if(res.data.status === 0) {
-                this.props.history.push('/blog')
-            }
-        })
+        if(this.state.editId) {
+            axios.post('/Blog/editBlog', {...params, id: this.state.editId}).then(res => {
+                if(res.data.status === 0) {
+                    this.props.history.push('/blog')
+                }
+            })
+        }else {
+            axios.post('/Blog/addBlog', params).then(res => {
+                if(res.data.status === 0) {
+                    this.props.history.push('/blog')
+                }
+            })
+        }
     }
 
     render() {
@@ -103,7 +126,7 @@ class NewBlog extends Component{
             <div className={style.newBlogWrapper}>
                 <div style={{position: 'relative',paddingLeft: '20px'}}>
                     {this.state.labels.map((label, index) => {
-                        return <Checkbox key={label._id} onChange={this.handleBoxChange.bind(this, index)}>{label.name}</Checkbox>
+                        return <Checkbox checked={this.state.checkedLabels.indexOf(label.name)>-1} key={label._id} onChange={this.handleBoxChange.bind(this, index)}>{label.name}</Checkbox>
                     })}
                     <div className={style.newLabel}>
                         {

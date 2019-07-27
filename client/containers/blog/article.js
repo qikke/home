@@ -25,6 +25,7 @@ export default class Article extends Component {
   }
   render () {
     const { 
+      _id,
       body, 
       title, 
       labels, 
@@ -36,6 +37,8 @@ export default class Article extends Component {
     const html = marked(body, {renderer})
     return (
       <div ref="article" className = {blogCss.article}>
+        <button style={{'marginRight': '20px'}} onClick={() => {this.props.editBlog(_id)}}>edit</button>
+        <button onClick={() => {this.props.deleteBlog(_id)}}>delete</button>
         <div className = {blogCss['article-center']}>
           <h1> {title} </h1>
           <span className = { blogCss['blog-menu-time'] }>{ moment(created_at).format('YYYY-MM-DD') }</span>
