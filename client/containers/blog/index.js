@@ -41,7 +41,7 @@ export default class Blog extends Component {
     return axios.get('/Blog/getAllBlogs', {timeout: 5000}).then(res => {
       if(res.data.status ===  0) {
         this.setState({articles: res.data.data.blogs})
-        this.setState({currentArticle: this.state.articles[0]})
+        this.setState({currentArticle: this.state.articles[0] || {}})
       }
     })
   }
