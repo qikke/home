@@ -2,10 +2,13 @@ import axios from '@/axios';
 import isMobile from '@/utils/isPhone';
 import Switch from '@c/switch';
 import Pop from '@c/windo';
+import {Input} from 'antd';
 import React, {Component} from 'react';
 import Article from './article';
 import blogCss from './blog.module.scss';
 import Menu from './menu';
+
+const { Search } = Input;
 
 export default class Blog extends Component {
   constructor() {
@@ -19,8 +22,10 @@ export default class Blog extends Component {
       lookPage: false,
       showLogin: false,
       userInfo: {},
-      activeLabelIndex: 0
+      activeLabelIndex: 0,
+      keyword: ''
     }
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentDidMount() {
@@ -81,6 +86,7 @@ export default class Blog extends Component {
   }
 
   handleChangeLabel(index) {
+    this.setState({keyword: ''})
     this.setState({activeLabelIndex: index})
     this.updateLabelList(this.state.labels[index].name)
     setTimeout(() => {this.changeArticle(this.state.activeArticles[0])}, 0)
@@ -117,8 +123,21 @@ export default class Blog extends Component {
     this.props.history.push(path)
   }
 
+  handleSearch(value) {
+    this.setState({keyword: value})
+    axios.post('/Blog/search', {
+      keyword: value
+    }).then(res => {
+      if(res.data.status === 0) {
+        this.setState({activeLabelIndex: -1})
+        this.setState({activeArticles: res.data.data.blogs})
+        setTimeout(() => {this.changeArticle(this.state.activeArticles[0])}, 0)
+      }
+    })
+  }
+
   render() {
-    const {activeArticles, currentArticle, lookPage, userInfo } = this.state
+    const {activeArticles, currentArticle, lookPage, userInfo, keyword } = this.state
     let blogClassNames = [blogCss['blog-main']]
     if (isMobile) {
       blogClassNames.push(blogCss['blog-mobile'])
@@ -135,6 +154,11 @@ export default class Blog extends Component {
               return <li key={label._id} style={{'float': 'left', 'marginRight': '15px', 'cursor': 'pointer', 'color': index === this.state.activeLabelIndex ? 'white': 'black' }} onClick={this.handleChangeLabel.bind(this, index)}>{label.name}</li>
             })
           }
+          <Search
+            placeholder="input search text"
+            onSearch={this.handleSearch}
+            style={{ width: 200 }}
+          />
         </ul>
         <button onClick={this.handleNew.bind(this)} style={{'float': 'right'}}>new</button>
         <div className={ blogClassNames }>
@@ -145,7 +169,7 @@ export default class Blog extends Component {
             unmove={true}
             class={blogCss['blog-menu-box']}
           >
-            <Menu articles={ activeArticles } currentArticle = { currentArticle } changeArticle={ article => this.changeArticle(article)}/>
+            <Menu keyword = {keyword}  articles={ activeArticles } currentArticle = { currentArticle } changeArticle={ article => this.changeArticle(article)}/>
           </Pop>
           <Pop
             noClose={true}
@@ -163,6 +187,7 @@ export default class Blog extends Component {
               resetUserInfo={data=>this.resetUserInfo(data)}
               data={ currentArticle } 
               userInfo={userInfo}
+              keyword = {keyword}
             />
           </Pop>
         </div>

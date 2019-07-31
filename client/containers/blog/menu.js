@@ -4,6 +4,9 @@ import * as blogCss from './blog.module.scss';
 import Labels from './labels';
 
 export default class BlogMenu extends Component {
+  keywordHeighlignt(keyword, text) {
+    return text.replace(new RegExp(keyword, 'gi'), `<span style="color: red;">${keyword}</span>`)
+  }
 
   render() {
     const { currentArticle, articles } = this.props
@@ -25,7 +28,11 @@ export default class BlogMenu extends Component {
                 key = { article._id } 
                 onClick={() => this.props.changeArticle(article)}
               >
-                <h3 className = { titleCss }>{ article.title }</h3>
+                {
+                  this.props.keyword === ''
+                  ?  <h3 className = { titleCss }>{ article.title }</h3>
+                  : <h3 dangerouslySetInnerHTML={{__html: this.keywordHeighlignt(this.props.keyword, article.title)}}></h3>
+                }
                 <div>
                   <span className = { timeCss }>{ moment(article.created_at).format('YYYY-MM-DD hh:mm') }</span>
                   <Labels labels={article.labels}/>

@@ -23,6 +23,9 @@ export default class Article extends Component {
   resetScrollTop() {
     this.refs.article && (this.refs.article.scrollTop = '0px')
   }
+  keywordHeighlignt(keyword, text) {
+    return text.replace(new RegExp(keyword, 'gi'), `<span style="color: red;">${keyword}</span>`)
+  }
   render () {
     const { 
       _id,
@@ -43,7 +46,11 @@ export default class Article extends Component {
           <h1> {title} </h1>
           <span className = { blogCss['blog-menu-time'] }>{ moment(created_at).format('YYYY-MM-DD') }</span>
           <Labels labels={labels} />
-          <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}} />
+          {
+            this.props.keyword === ''
+            ? <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}} />
+            : <div className={blogCss.view} dangerouslySetInnerHTML={{__html:this.keywordHeighlignt(this.props.keyword, html)}} />
+          }
           {/* <Comments data={this.props.data} userInfo={this.props.userInfo} resetUserInfo={this.props.resetUserInfo} showLogin={this.props.showLogin}/> */}
         </div>
       </div>
