@@ -34,6 +34,15 @@
     border-bottom: 1px solid #eee;
     padding-bottom: 10px
   }
+  h1 {
+    font-size: 1.6em
+  }
+  h2 {
+    font-size: 1.4em
+  }
+  h3 {
+    font-size: 1.2em
+  }
   blockquote p:last-child {
     margin: 0
   }
@@ -41,8 +50,3 @@
     font-family: $art_font;
   }
 }
-
-
-
-
-

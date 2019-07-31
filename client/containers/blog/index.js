@@ -129,7 +129,7 @@ export default class Blog extends Component {
     blogClassNames = blogClassNames.join(' ')
     return (
       <div className="page app-center">
-        <ul>
+        <ul style={{'position': 'absolute'}}>
           {
             this.state.labels.map((label, index) => {
               return <li key={label._id} style={{'float': 'left', 'marginRight': '15px', 'cursor': 'pointer', 'color': index === this.state.activeLabelIndex ? 'white': 'black' }} onClick={this.handleChangeLabel.bind(this, index)}>{label.name}</li>
