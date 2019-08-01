@@ -3,6 +3,7 @@ const HTMLPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
 const paths = require('./paths')
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const config = {
   optimization: {
     splitChunks: {
@@ -140,6 +141,11 @@ const config = {
   plugins: [
     new HTMLPlugin({
       template: path.join(__dirname, '../client/index.html')
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as: 'script',
+      include: 'asyncChunks',
     }),
     new webpack.SourceMapDevToolPlugin({
       filename: "[file].map"
