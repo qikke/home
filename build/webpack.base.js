@@ -17,7 +17,11 @@ const config = {
           vendors: {
             test: /[\\/]node_modules[\\/]/,
             minChunks:1,
-            priority: -10
+            priority: -10,
+            name(module) {
+              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+              return `npm.${packageName.replace('@', '')}`;
+            },
           },
           utils: {
             name: 'utils',
@@ -132,20 +136,14 @@ const config = {
       }
     ]
   },
-  // watch: true,
-  // watchOptions: {
-  //   poll: 1000,
-  //   aggregateTimeout: 500,
-  //   ignored: /node_modules/
-  // },
   plugins: [
     new HTMLPlugin({
       template: path.join(__dirname, '../client/index.html')
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      as: 'script',
-      include: 'asyncChunks',
+      include: "allAssets",
+      fileWhitelist: [/\.woff2/, /\.woff/,/\.png/]
     }),
     new webpack.SourceMapDevToolPlugin({
       filename: "[file].map"
