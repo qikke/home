@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
 /***/ "SA+Z":
 /*!********************************************************!*\
@@ -46,4 +46,4 @@ eval("function _nonIterableRest() {\n  throw new TypeError(\"Invalid attempt to 
 /***/ })
 
 }]);
-//# sourceMappingURL=5.7f9a0c7018811c3db3d0.js.map
+//# sourceMappingURL=2.72badbbdc06e8fbe8855.js.map

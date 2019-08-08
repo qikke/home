@@ -132,6 +132,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "mypg":
+/*!********************************!*\
+  !*** ./client/utils/cookie.js ***!
+  \********************************/
+/*! exports provided: getCookie, setCookie */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getCookie\", function() { return getCookie; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setCookie\", function() { return setCookie; });\n(function () {\n  var enterModule = (typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal : __webpack_require__(/*! react-hot-loader */ \"0cfB\")).enterModule;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {\n  return a;\n};\n\nfunction getCookie(name) {\n  var arr,\n      reg = new RegExp(\"(^| )\" + name + \"=([^;]*)(;|$)\");\n  if (arr = document.cookie.match(reg)) return unescape(arr[2]);else return null;\n}\nfunction setCookie(name, value) {\n  var exp = new Date();\n  exp.setTime(exp.getTime() + 7 * 24 * 3600 * 1000);\n  document.cookie = name + \"=\" + escape(value) + \";expires=\" + exp.toGMTString() + \";path=/\";\n}\n;\n\n(function () {\n  var reactHotLoader = (typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal : __webpack_require__(/*! react-hot-loader */ \"0cfB\")).default;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(getCookie, \"getCookie\", \"D:\\\\project\\\\home\\\\client\\\\utils\\\\cookie.js\");\n  reactHotLoader.register(setCookie, \"setCookie\", \"D:\\\\project\\\\home\\\\client\\\\utils\\\\cookie.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = (typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal : __webpack_require__(/*! react-hot-loader */ \"0cfB\")).leaveModule;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"3UD+\")(module)))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibXlwZy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL2NsaWVudC91dGlscy9jb29raWUuanM/OWIyYSJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZnVuY3Rpb24gZ2V0Q29va2llKG5hbWUpIFxyXG57IFxyXG4gIHZhciBhcnIscmVnID0gbmV3IFJlZ0V4cChcIihefCApXCIgKyBuYW1lICsgXCI9KFteO10qKSg7fCQpXCIpO1xyXG4gIGlmKGFycj1kb2N1bWVudC5jb29raWUubWF0Y2gocmVnKSlcclxuICAgICAgcmV0dXJuIHVuZXNjYXBlKGFyclsyXSk7IFxyXG4gIGVsc2UgXHJcbiAgICAgIHJldHVybiBudWxsOyBcclxufSBcclxuXHJcbmV4cG9ydCBmdW5jdGlvbiBzZXRDb29raWUobmFtZSx2YWx1ZSl7XHJcbiAgICAgIHZhciBleHAgPSBuZXcgRGF0ZSgpO1xyXG4gICAgICBleHAuc2V0VGltZShleHAuZ2V0VGltZSgpICsgNyAqIDI0ICogMzYwMCAqIDEwMDApO1xyXG4gICAgICBkb2N1bWVudC5jb29raWUgPSBuYW1lICsgXCI9XCIgKyBlc2NhcGUodmFsdWUpICsgXCI7ZXhwaXJlcz1cIiArIGV4cC50b0dNVFN0cmluZygpICsgXCI7cGF0aD0vXCI7XHJcbn1cclxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQTtBQUVBO0FBQUE7QUFDQTtBQUlBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7Ozs7OztBQWJBO0FBU0E7Ozs7Ozs7OztBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///mypg\n");
+
+/***/ }),
+
 /***/ "xTJ+":
 /*!*****************************************!*\
   !*** ./node_modules/axios/lib/utils.js ***!
@@ -169,4 +181,4 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ })
 
 }]);
-//# sourceMappingURL=utils.528e6cda87eff39a1904.js.map
+//# sourceMappingURL=utils.61c349fc9c9bdd7e849f.js.map
