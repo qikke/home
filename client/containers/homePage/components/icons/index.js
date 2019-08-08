@@ -12,7 +12,7 @@ export default class MyIcon extends Component{
     super(props)
     this.state = {
       figures:[
-        { src: homeIcon.readme, text: '说明', isShow: false, child: ShowMe,type:'main'},
+        { src: homeIcon.readme, text: '信息', isShow: false, child: ShowMe,type:'main'},
       ]
     }
     this.upload = 0

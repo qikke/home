@@ -67,7 +67,7 @@ const config = {
         loader: require.resolve('url-loader'),
         options: {
           limit: 1,
-          name: 'media/[name].[hash:8].[ext]',
+          name: 'media/[name].[ext]',
         },
       },
       {
@@ -143,7 +143,7 @@ const config = {
     new PreloadWebpackPlugin({
       rel: 'preload',
       include: "allAssets",
-      fileWhitelist: [/\.woff2/, /\.woff/,/\.png/]
+      fileWhitelist: [/\.woff2/, /\.woff/,/\.ttf/,/\.png/]
     }),
     new webpack.SourceMapDevToolPlugin({
       filename: "[file].map"

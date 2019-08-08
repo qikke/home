@@ -1,6 +1,7 @@
 import Model from '@c/model';
 import Switch from '@c/switch';
 import React from 'react';
+import {getCookie, setCookie} from '../../utils/cookie';
 import Footer from './components/footer';
 import MyIcon from './components/icons';
 import TextNode from './components/text';
@@ -21,9 +22,9 @@ class Home extends React.Component {
 
   componentWillMount(){
     // 组件加载时查看Cookie是否有保存用户信息
-    let email = this.getCookie("homeEmail")
+    let email = getCookie("homeEmail")
     if(email){
-      let name = this.getCookie("homeName")
+      let name = getCookie("homeName")
       this.setState({
         user:{
           name:name,
@@ -39,28 +40,13 @@ class Home extends React.Component {
     })
   }
 
-  getCookie(name) 
-  { 
-    var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-    if(arr=document.cookie.match(reg))
-        return unescape(arr[2]); 
-    else 
-        return null; 
-  } 
-
-  setCookie(name,value){
-        var exp = new Date();
-        exp.setTime(exp.getTime() + 7 * 24 * 3600 * 1000);
-        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
-  }
-
   setLoading(opt){
     this.setState({
       user: opt,
       modelType: 'ok'
     })
-    this.setCookie("homeEmail",opt.email)
-    this.setCookie("homeName",opt.name)
+    setCookie("homeEmail",opt.email)
+    setCookie("homeName",opt.name)
     this.refs.model.show()
   }
 

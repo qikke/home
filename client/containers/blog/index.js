@@ -4,6 +4,7 @@ import Switch from '@c/switch';
 import Pop from '@c/windo';
 import {Input} from 'antd';
 import React, {Component} from 'react';
+import {getCookie} from '../../utils/cookie';
 import Article from './article';
 import blogCss from './blog.module.scss';
 import Menu from './menu';
@@ -148,7 +149,7 @@ export default class Blog extends Component {
     blogClassNames = blogClassNames.join(' ')
     return (
       <div className="page app-center">
-        <ul style={{'position': 'absolute'}}>
+        <ul style={{'position': 'absolute', 'paddingTop': '5px', 'display': 'flex', 'alignItems': 'center'}}>
           {
             this.state.labels.map((label, index) => {
               return <li key={label._id} style={{'float': 'left', 'marginRight': '15px', 'cursor': 'pointer', 'color': index === this.state.activeLabelIndex ? 'white': 'black' }} onClick={this.handleChangeLabel.bind(this, index)}>{label.name}</li>
@@ -160,7 +161,8 @@ export default class Blog extends Component {
             style={{ width: 200 }}
           />
         </ul>
-        <button onClick={this.handleNew.bind(this)} style={{'float': 'right'}}>new</button>
+        {getCookie("homeEmail") === 'qiguanshaokai.@gmail.com' &&  
+        <button onClick={this.handleNew.bind(this)} style={{'float': 'right'}}>new</button>}
         <div className={ blogClassNames }>
         <Pop
             noClose={true}

@@ -40,9 +40,9 @@ export default class ShowMe extends Component{
               <img src={homeImg.glitch} alt=""/>
             </div>
           </li>
-          <li>Mr.Ou Personal Web</li>
-          <li>v2.1.0</li>
-          <li className={Css.settLink}><a className='needsclick' onClick={this.toAbout}>View More</a></li>
+          <li>qikke's Personal Web</li>
+          <li>v1.1.0</li>
+          {/* <li className={Css.settLink}><a className='needsclick' onClick={this.toAbout}>View More</a></li> */}
           <li><hr align='center' width='60%' style={{margin:'18px auto'}} color='#b99f51' size="1"/></li>
           <li>{this.props.other.user.email
               ?<em>{this.props.other.user.email}</em>

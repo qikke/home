@@ -10,8 +10,8 @@ export default function TextNode () {
       <footer className={styles.footer}>
         <ul>
           <li><b>const</b>{dateValue}</li>
-          <li><b>const</b> UseTime = 4s</li>
-          <li><b>const</b> Add=北京市</li>
+          {/* <li><b>const</b> UseTime = 4s</li>
+          <li><b>const</b> Add=北京市</li> */}
           <li>WWW.QIKKE.CN</li>
           {/* <li><a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备17162184号-2</a></li> */}
         </ul>
