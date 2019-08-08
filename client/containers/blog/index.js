@@ -161,7 +161,7 @@ export default class Blog extends Component {
             style={{ width: 200 }}
           />
         </ul>
-        {getCookie("homeEmail") === 'qiguanshaokai.@gmail.com' &&  
+        {getCookie("homeEmail") === 'qiguanshaokai@gmail.com' &&  
         <button onClick={this.handleNew.bind(this)} style={{'float': 'right'}}>new</button>}
         <div className={ blogClassNames }>
         <Pop

@@ -42,7 +42,7 @@ export default class Article extends Component {
     return (
       <div ref="article" className = {blogCss.article}>
         {
-          getCookie("homeEmail") === 'qiguanshaokai.@gmail.com' && 
+          getCookie("homeEmail") === 'qiguanshaokai@gmail.com' && 
         <div>
         <button style={{'marginRight': '20px'}} onClick={() => {this.props.editBlog(_id)}}>edit</button>
         <button onClick={() => {this.props.deleteBlog(_id)}}>delete</button>
