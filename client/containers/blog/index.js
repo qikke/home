@@ -149,10 +149,10 @@ export default class Blog extends Component {
     blogClassNames = blogClassNames.join(' ')
     return (
       <div className="page app-center">
-        <ul style={{'position': 'absolute', 'paddingTop': '5px', 'display': 'flex', 'alignItems': 'center'}}>
+        <ul className={blogCss['blog-typelist']}>
           {
             this.state.labels.map((label, index) => {
-              return <li key={label._id} style={{'float': 'left', 'marginRight': '15px', 'cursor': 'pointer', 'color': index === this.state.activeLabelIndex ? 'white': 'black' }} onClick={this.handleChangeLabel.bind(this, index)}>{label.name}</li>
+              return <li key={label._id} className={`${blogCss['blog-typeItem']} ${index === this.state.activeLabelIndex ? blogCss['blog-active'] : ''}`} onClick={this.handleChangeLabel.bind(this, index)}>{label.name}</li>
             })
           }
           <Search
